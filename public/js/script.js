@@ -1,1 +1,1 @@
-console.log("Uday Todo Manager");
+console.log("Uday");
