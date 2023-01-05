@@ -4,7 +4,7 @@ const { Todo } = require("./models");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { response } = require("express");
-//app.js
+
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname + "/public")));
@@ -44,7 +44,6 @@ app.post("/todos", async (req, res) => {
     console.log(error);
     return response.status(422).json(error);
   }
-  
 });
 
 app.put("/todos/:id/markAsCompleted", async (req, res) => {
@@ -64,7 +63,6 @@ app.delete("/todos/:id", async (req, res) => {
   console.log("We have to delete a Todo with ID: ", req.params.id);
   const affectedRow = await Todo.destroy({ where: { id: req.params.id } });
   res.send(affectedRow ? true : false);
-  
 });
 
 module.exports = app;
